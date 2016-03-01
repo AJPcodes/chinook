@@ -24,6 +24,16 @@ app.get('/mediatype', (req, res) => {
   .then((data) => {  res.send(data);});
 });
 
+app.get('/artist', (req, res) => {
+  models.Artist.findAll()
+  .then((data) => {  res.send(data);});
+});
+
+app.get('/playlist', (req, res) => {
+  models.Playlist.findAll()
+  .then((data) => {  res.send(data);});
+});
+
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
