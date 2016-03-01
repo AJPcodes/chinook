@@ -1,0 +1,26 @@
+{
+  "name": "chinook",
+  "version": "1.0.0",
+  "description": "API for Chinook Database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "serve": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AJPcodes/chinook.git"
+  },
+  "author": "github.com/AJPcodes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AJPcodes/chinook/issues"
+  },
+  "homepage": "https://github.com/AJPcodes/chinook#readme",
+  "dependencies": {
+    "pg": "^4.5.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.19.3"
+  }
+}
