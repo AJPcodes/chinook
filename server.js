@@ -36,7 +36,7 @@ app.get('/playlist', (req, res) => {
 
 app.get('/invoice', (req, res) => {
   models.Invoice.findAll({
-      attributes: {exclude: "ExcludeId"},
+      attributes: {exclude: "CustomerId"},
       include: [{
         model: models.Customer,
         attributes: {exclude: "CustomerId"}
@@ -49,6 +49,25 @@ app.get('/customer', (req, res) => {
   models.Customer.findAll()
   .then((data) => {  res.send(data);});
 });
+
+
+app.get('/customer/:id', (req, res) => {
+  const id = req.params.id;
+  models.Customer.findOne({
+    where: {CustomerId: id}
+  })
+  .then((data) => {  res.send(data);});
+});
+
+app.get('/customer/:id/invoices', (req, res) => {
+  const id = req.params.id;
+  models.Customer.findOne({
+    where: {CustomerId: id},
+    include: models.Invoice
+  })
+  .then((data) => {  res.send(data);});
+});
+
 
 app.get('/album', (req, res) => {
   models.Album.findAll({
